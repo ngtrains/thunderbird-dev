@@ -1,0 +1,7 @@
+services:
+  sdk:
+    container_name: sdk
+    tty: true
+    stdin_open: true
+    build:
+      context: .
