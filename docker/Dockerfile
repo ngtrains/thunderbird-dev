@@ -1,5 +1,14 @@
-FROM openjdk:27-ea-jdk-trixie
+FROM busybox AS unpack
+WORKDIR /unpack
+ADD https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip ./sdk.zip
+RUN unzip ./sdk.zip
 
-RUN apt-get update && apt-get install -y \
-    android-sdk \
-    android-sdk-build-tools
+
+FROM eclipse-temurin:25-jdk-jammy
+COPY --from=unpack /unpack/ /root/sdk
+ENV ANDROID_HOME=/root/sdk
+ENV PATH="${PATH}:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools:${ANDROID_HOME}/cmdline-tools/latest/bin"
+RUN mkdir $ANDROID_HOME/cmdline-tools/latest
+WORKDIR $ANDROID_HOME/cmdline-tools
+RUN mv bin lib NOTICE.txt source.properties ./latest/
+RUN  yes | sdkmanager "platform-tools" "platforms;android-36"

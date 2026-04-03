@@ -3,6 +3,7 @@
 PS3="Select action: "
 options=(
     "Docker compose up"
+    "Docker compose up --build"
     "SDK bash"
     "Quit"
 )
@@ -14,9 +15,13 @@ do
             docker compose up -d
             ;;
         2)
-            tmux send-keys -t 'app' 'cd ../docker && docker compose exec sdk bash' C-m
+            cd ../docker
+            docker compose up -d --build
             ;;
         3)
+            tmux send-keys -t 'app' 'cd ../docker && docker compose exec sdk bash' C-m
+            ;;
+        4)
             cd ../docker
             docker compose down
             break
