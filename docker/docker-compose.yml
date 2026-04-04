@@ -4,3 +4,5 @@ services:
     tty: true
     build:
       context: .
+    volumes:
+      - ~/Sources/thunderbird-dev/src:/src/thunderbird

@@ -12,4 +12,5 @@ RUN mkdir $ANDROID_HOME/cmdline-tools/latest
 WORKDIR $ANDROID_HOME/cmdline-tools
 RUN mv bin lib NOTICE.txt source.properties ./latest/
 RUN  yes | sdkmanager "platform-tools" "platforms;android-36"
+WORKDIR /src/thunderbird
 CMD ["/bin/bash"]
