@@ -4,4 +4,4 @@ Select `1` then `3` option.\
 
 # Gradle tasks
 `./gradlew :app-thunderbird:tasks`\
-`./gradlew -P isCI=true :app-thunderbird:assembleRelease --info`
+`./gradlew -PisCI=true :app-thunderbird:bundleRelease --info`
