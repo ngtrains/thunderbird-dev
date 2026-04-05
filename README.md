@@ -4,7 +4,8 @@ Select `1` then `3` option.\
 
 # Gradle tasks
 `./gradlew :app-thunderbird:tasks`\
-`./gradlew :app-thunderbird:assembleDebug --info`
+`./gradlew :app-thunderbird:assembleDebug --info`\
+`./gradlew :app-thunderbird:installFullDebug --info`
 
-# SDK container CLI
+# Debian bash
 `docker system prune`
