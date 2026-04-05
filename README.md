@@ -4,4 +4,4 @@ Select `1` then `3` option.\
 
 # Gradle tasks
 `./gradlew tasks`\
-`./gradlew :app-thunderbird:assembleRelease`
+`./gradlew :app-thunderbird:assembleRelease --info`
