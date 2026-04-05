@@ -1,8 +1,10 @@
 services:
   sdk:
     container_name: sdk
+    privileged: true
     tty: true
     build:
       context: .
     volumes:
       - ~/Sources/thunderbird-dev/src:/src/thunderbird
+      - /dev/bus/usb:/dev/bus/usb
